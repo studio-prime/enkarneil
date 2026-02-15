@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Énkar Neil is a photographer and visual artist specialized in portrait photography, corporate photography, visual poetry and photography within the field of music.",
+  alternates: { canonical: "/about" },
+};
+
 export default function About() {
   return (
     <main>

@@ -16,9 +16,48 @@ const inter = Inter({
   weight: ["300", "400", "500"],
 });
 
+const siteUrl = "https://enkarneil.com";
+
 export const metadata: Metadata = {
-  title: "Énkar Neil",
-  description: "Photographer and visual artist",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Énkar Neil — Photographer & Visual Artist",
+    template: "%s | Énkar Neil",
+  },
+  description:
+    "Énkar Neil is a photographer and visual artist specialized in portrait photography, corporate photography, visual poetry and photography within the field of music.",
+  keywords: [
+    "Énkar Neil",
+    "photographer",
+    "visual artist",
+    "portrait photography",
+    "music photography",
+    "corporate photography",
+    "visual poetry",
+  ],
+  authors: [{ name: "Énkar Neil" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Énkar Neil",
+    title: "Énkar Neil — Photographer & Visual Artist",
+    description:
+      "Photographer and visual artist specialized in portrait, corporate, and music photography.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Énkar Neil — Photographer & Visual Artist",
+    description:
+      "Photographer and visual artist specialized in portrait, corporate, and music photography.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 export default function RootLayout({

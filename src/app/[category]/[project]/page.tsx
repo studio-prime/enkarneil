@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,6 +12,22 @@ export function generateStaticParams() {
     }
   }
   return params;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string; project: string }>;
+}): Promise<Metadata> {
+  const { category: catSlug, project: projSlug } = await params;
+  const result = getProject(catSlug, projSlug);
+  if (!result) return {};
+  const { category, project } = result;
+  return {
+    title: `${project.name} — ${category.name}`,
+    description: `${project.name} by Énkar Neil — ${category.name} photography.`,
+    alternates: { canonical: `/${category.slug}/${project.slug}` },
+  };
 }
 
 export default async function ProjectPage({

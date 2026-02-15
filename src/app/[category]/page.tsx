@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -5,6 +6,21 @@ import { categories, getCategory } from "../data/portfolio";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ category: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  const { category: slug } = await params;
+  const category = getCategory(slug);
+  if (!category) return {};
+  return {
+    title: category.name,
+    description: `${category.name} photography portfolio by Énkar Neil.`,
+    alternates: { canonical: `/${category.slug}` },
+  };
 }
 
 export default async function CategoryPage({

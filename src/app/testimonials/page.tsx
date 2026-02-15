@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Testimonials",
+  description: "What clients say about working with Énkar Neil.",
+  alternates: { canonical: "/testimonials" },
+};
+
 export default function Testimonials() {
   return (
     <main>
