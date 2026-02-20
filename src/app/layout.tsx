@@ -1,19 +1,23 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
+import CookieConsent from "./components/CookieConsent";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 const siteUrl = "https://enkarneil.com";
@@ -60,6 +64,27 @@ export const metadata: Metadata = {
   },
 };
 
+function JsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Énkar Neil",
+    url: "https://enkarneil.com",
+    jobTitle: "Photographer & Visual Artist",
+    description:
+      "Photographer and visual artist specialized in portrait photography, corporate photography, visual poetry and photography within the field of music.",
+    email: "enkarneil@gmail.com",
+    sameAs: [],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,13 +93,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${inter.variable} antialiased min-h-screen flex flex-col`}
+        className={`${cormorant.variable} ${inter.variable} flex min-h-screen flex-col antialiased`}
       >
+        <JsonLd />
         <Header />
-        <div className="flex-1">
-          {children}
-        </div>
+        <div className="flex-1">{children}</div>
         <Footer />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );
