@@ -1,0 +1,36 @@
+name: "Bug report"
+description: "Reportar un error o problema"
+labels: ["bug"]
+assignees: ["davidgrrcia"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: "¿Qué ha pasado?"
+      description: "Describe el problema que has encontrado"
+      placeholder: "Le doy al botón de pagar y no hace nada..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "¿Qué esperabas que pasara?"
+      description: "Describe lo que debería haber ocurrido"
+      placeholder: "Debería llevarme al checkout..."
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: "¿En qué página o pantalla?"
+      description: "Pega la URL o describe dónde ocurre"
+      placeholder: "https://... o 'página de pedidos'"
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Captura de pantalla"
+      description: "Si puedes, arrastra una imagen aquí"
+    validations:
+      required: false

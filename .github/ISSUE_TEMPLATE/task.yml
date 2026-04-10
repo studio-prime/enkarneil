@@ -1,0 +1,35 @@
+name: "New task"
+description: "Solicitar una nueva funcionalidad o cambio"
+assignees: ["davidgrrcia"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: "¿Qué necesitas?"
+      description: "Describe lo que quieres que hagamos"
+      placeholder: "Añadir un botón para descargar facturas..."
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: "¿En qué página o sección?"
+      description: "Indica dónde debería ir el cambio"
+      placeholder: "En la página de pedidos, arriba a la derecha..."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: "¿Por qué lo necesitas?"
+      description: "Nos ayuda a entender mejor tu necesidad"
+      placeholder: "Los clientes nos lo piden por email constantemente..."
+    validations:
+      required: false
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Referencia visual"
+      description: "Si tienes un ejemplo o captura, arrástrala aquí"
+    validations:
+      required: false
