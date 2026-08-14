@@ -1,0 +1,26 @@
+name: Client request
+description: Track an actionable client request in this product repository.
+title: ""
+labels:
+  - client-request
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Requested outcome
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source evidence
+      description: Stable source IDs, dates, filenames, and relevant wording without unnecessary personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+
