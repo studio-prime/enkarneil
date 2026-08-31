@@ -1,6 +1,6 @@
 name: "New task"
 description: "Solicitar una nueva funcionalidad o cambio"
-assignees: ["davidgrrcia"]
+assignees: ["davgrrcia"]
 body:
   - type: textarea
     id: what
